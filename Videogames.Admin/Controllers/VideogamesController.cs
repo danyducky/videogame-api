@@ -1,56 +1,52 @@
-﻿//using Microsoft.AspNetCore.Mvc;
-//using System.Collections.Generic;
-//using System.Threading.Tasks;
-//using Videogames.Admin.Models.Common.Videogames.CreateEdit;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Videogames.Admin.Models.Common.Videogames.CreateEdit;
+using Videogames.Admin.Models.Common.Videogames.Item;
 
-//namespace VideogamesWebApi.Controllers
-//{
-//    [Route("api/[controller]")]
-//    [ApiController]
-//    public class VideogamesController : ControllerBase
-//    {
-//        private readonly IVideogameModelHandler videoGameModelHandler;
-//        public VideogamesController(IVideogameModelHandler videoGameModelHandler)
-//        {
-//            this.videoGameModelHandler = videoGameModelHandler;
-//        }
-
-
-//        [HttpGet]
-//        public async Task<IActionResult> getVideogames([FromQuery(Name = "genre")] string genre)
-//        {
-
-//        }
-
-
-//        [HttpGet("{id}")]
-//        public IActionResult getVideogame([FromRoute] int Id)
-//        {
-
-//        }
+namespace Videogames.Admin.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class VideogamesController : ControllerBase
+    {
+        private readonly IVideogameFormHandler videogameFormHandler;
+        private readonly IVideogameModelHandler videogameModelHandler;
+        public VideogamesController(IVideogameFormHandler videogameFormHandler, IVideogameModelHandler videogameModelHandler)
+        {
+            this.videogameFormHandler = videogameFormHandler;
+            this.videogameModelHandler = videogameModelHandler;
+        }
 
 
-//        [HttpPost]
-//        public IActionResult createVideogame([FromBody]object json)
-//        {
-//            if (json == null) return BadRequest("Body is null");
+        [HttpGet]
+        public IActionResult List()
+        {
+            return Ok();
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Item([FromRoute] int id)
+        {
+            return Ok();
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody]VideogameForm form)
+        {
+            videogameFormHandler.HandleCreate(form);
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Edit([FromRoute] int id)
+        {
+            return Ok();
+        }
 
 
-
-//            return Ok("Success");
-//        }
-
-//        [HttpPut("{id}")]
-//        public IActionResult updateVideogame([FromRoute] int Id, [FromBody] VideogameViewModel videogame)
-//        {
-
-//        }
-
-//        [HttpDelete("{id}")]
-//        public IActionResult deleteVideogame([FromRoute] int Id)
-//        {
-
-//        }
-
-//    }
-//}
+    }
+}

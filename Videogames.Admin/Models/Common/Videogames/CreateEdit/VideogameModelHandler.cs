@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Videogames.DataLayer;
 using Videogames.DataLayer.Entities.Videogames;
 using Videogames.DataLayer.Entities.Videogames.Interfaces;
-using Videogames.DataLayer.Entities.Videogames.Repositories;
 
 namespace Videogames.Admin.Models.Common.Videogames.CreateEdit
 {
-    public class VideogameModel : IVideogameModelHandler
+    public class VideogameModelHandler : IVideogameModelHandler
     {
         private readonly IVideogameRepository videogameRepository;
-        public VideogameModel(IVideogameRepository videogameRepository)
+        public VideogameModelHandler(IVideogameRepository videogameRepository)
         {
             this.videogameRepository = videogameRepository;
         }

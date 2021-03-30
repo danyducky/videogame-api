@@ -21,7 +21,8 @@ namespace Videogames.Admin.Infastructure
             services.AddDbContext<VideogameDbContext>(ServiceLifetime.Transient);
 
             services.AddSingleton<IVideogameRepository, VideogameRepository>();
-            services.AddSingleton<IVideogameModelHandler, VideogameModel>();
+            services.AddSingleton<IVideogameModelHandler, VideogameModelHandler>();
+            services.AddSingleton<IVideogameFormHandler, VideogameFormHandler>();
             //
             services.AddSingleton<IGenreRepository, GenreRepository>();
             services.AddSingleton<IGenreModelHandler, GenreModelHandler>();
