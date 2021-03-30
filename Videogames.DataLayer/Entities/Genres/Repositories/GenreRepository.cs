@@ -23,6 +23,12 @@ namespace Videogames.DataLayer.Entities.Genres.Repositories
             db.Genres.Remove(genre);
         }
 
+        public Genre GetGenreById(int id)
+        {
+            var item = db.Genres.Find(id);
+            return item;
+        }
+
         public List<Genre> GetGenres()
         {
             return db.Genres.ToList();

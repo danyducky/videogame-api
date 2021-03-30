@@ -7,6 +7,6 @@ namespace Videogames.Admin.Models.Common.Genres.List
 {
     public interface IGenreListModelBuilder
     {
-        //
+        GenreListModel Build();
     }
 }
