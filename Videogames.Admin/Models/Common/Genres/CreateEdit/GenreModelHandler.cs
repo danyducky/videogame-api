@@ -7,10 +7,10 @@ using Videogames.DataLayer.Entities.Genres.Repositories;
 
 namespace Videogames.Admin.Models.Common.Genres.CreateEdit
 {
-    public class GenreModel : IGenreModelHandler
+    public class GenreModelHandler : IGenreModelHandler
     {
         private readonly IGenreRepository genreRepository;
-        public GenreModel(IGenreRepository genreRepository)
+        public GenreModelHandler(IGenreRepository genreRepository)
         {
             this.genreRepository = genreRepository;
         }

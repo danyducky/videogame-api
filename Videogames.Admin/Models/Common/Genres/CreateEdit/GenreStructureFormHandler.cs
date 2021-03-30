@@ -30,6 +30,8 @@ namespace Videogames.Admin.Models.Common.Genres.CreateEdit
         {
             var genre = genreRepository.GetGenreById(id);
 
+            if (genre == null) return;
+
             genre.Name = form.Name;
 
             genreModelHandler.Edit(genre);
