@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideogamesWebApi", "VideogamesWebApi\VideogamesWebApi.csproj", "{4E2263C2-DF26-4390-BE59-8F41446B894B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Videogames.Admin", "Videogames.Admin\Videogames.Admin.csproj", "{091843E3-A8AF-4A8B-98D8-3EC4FF9077AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Videogames.DataLayer", "Videogames.DataLayer\Videogames.DataLayer.csproj", "{B856BDCD-2E2A-4CD6-9DA5-8180911542C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4E2263C2-DF26-4390-BE59-8F41446B894B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E2263C2-DF26-4390-BE59-8F41446B894B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E2263C2-DF26-4390-BE59-8F41446B894B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E2263C2-DF26-4390-BE59-8F41446B894B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{091843E3-A8AF-4A8B-98D8-3EC4FF9077AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{091843E3-A8AF-4A8B-98D8-3EC4FF9077AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{091843E3-A8AF-4A8B-98D8-3EC4FF9077AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{091843E3-A8AF-4A8B-98D8-3EC4FF9077AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B856BDCD-2E2A-4CD6-9DA5-8180911542C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B856BDCD-2E2A-4CD6-9DA5-8180911542C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B856BDCD-2E2A-4CD6-9DA5-8180911542C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B856BDCD-2E2A-4CD6-9DA5-8180911542C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
