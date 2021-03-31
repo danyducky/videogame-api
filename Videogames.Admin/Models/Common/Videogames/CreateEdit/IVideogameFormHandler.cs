@@ -8,7 +8,7 @@ namespace Videogames.Admin.Models.Common.Videogames.CreateEdit
 {
     public interface IVideogameFormHandler
     {
-        void HandleCreate(VideogameForm form);
+        int HandleCreate(VideogameForm form);
         void HandleEdit(int id, VideogameForm form);
     }
 }

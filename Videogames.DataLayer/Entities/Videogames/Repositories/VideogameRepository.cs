@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Videogames.DataLayer.Entities.Genres;
 using Videogames.DataLayer.Entities.Videogames.Interfaces;
 
 namespace Videogames.DataLayer.Entities.Videogames.Repositories
@@ -23,7 +24,7 @@ namespace Videogames.DataLayer.Entities.Videogames.Repositories
             db.Videogames.Remove(videogame);
         }
 
-        public Videogame GetVideogame(int id)
+        public Videogame GetVideogameById(int id)
         {
             return db.Videogames.Find(id);
         }
@@ -31,6 +32,12 @@ namespace Videogames.DataLayer.Entities.Videogames.Repositories
         public List<Videogame> GetVideogames()
         {
             return db.Videogames.ToList();
+        }
+
+        public void InsertRange(Videogame videogame, IList<Genre> genres)
+        {
+            var game = db.Videogames.Find(videogame);
+            game.Genres.AddRange(genres);
         }
 
         public void Save()

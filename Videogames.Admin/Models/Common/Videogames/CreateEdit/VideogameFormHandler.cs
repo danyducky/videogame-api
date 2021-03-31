@@ -14,28 +14,42 @@ namespace Videogames.Admin.Models.Common.Videogames.CreateEdit
 {
     public class VideogameFormHandler : IVideogameFormHandler
     {
-        private readonly IVideogameModelHandler videogameModelHandler;
+        private readonly IVideogameRepository videogameRepository;
+        private readonly IDeveloperRepository developerRepository;
         private readonly IGenreRepository genreRepository;
-        public VideogameFormHandler(IVideogameModelHandler videogameModelHandler, IGenreRepository genreRepository)
+        public VideogameFormHandler(IVideogameRepository videogameRepository, IDeveloperRepository developerRepository, IGenreRepository genreRepository)
         {
-            this.videogameModelHandler = videogameModelHandler;
+            this.videogameRepository = videogameRepository;
+            this.developerRepository = developerRepository;
             this.genreRepository = genreRepository;
         }
 
-        public void HandleCreate(VideogameForm form)
+        public int HandleCreate(VideogameForm form)
         {
-            var videogame = new Videogame();
-            // Остановился здесь
-            videogame.DeveloperId = form.Id;
-            videogame.Name = form.Name;
-            //videogame.Genres.AddRange(genres);
+            var g = form.Genres.Select(genre => genre.Name);
+            var genres = genreRepository.GetGenres().Where(genre => g.Contains(genre.Name)).ToList();
 
-            videogameModelHandler.Create(videogame);
+            var videogame = new Videogame
+            {
+                Name = form.Name,
+                DeveloperId = form.DeveloperId
+            };
+
+            foreach (var genre in genres)
+            {
+                genre.Videogames.Add(videogame);
+            }
+
+            videogameRepository.Create(videogame);
+            videogameRepository.Save();
+            genreRepository.Save();
+
+            return videogame.Id;
         }
 
         public void HandleEdit(int id, VideogameForm form)
         {
-            throw new NotImplementedException();
+
         }
     }
 }

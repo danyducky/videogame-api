@@ -16,8 +16,4 @@
     <ProjectReference Include="..\Videogames.DataLayer\Videogames.DataLayer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\Common\Videogames\List\" />
-  </ItemGroup>
-
 </Project>

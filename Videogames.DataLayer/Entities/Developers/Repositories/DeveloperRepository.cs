@@ -25,8 +25,7 @@ namespace Videogames.DataLayer.Entities.Developers.Repositories
 
         public Developer GetDeveloperById(int Id)
         {
-            var developer = videogameDbContext.Developers.Find(Id);
-            return developer;
+            return videogameDbContext.Developers.FirstOrDefault(dev => dev.Id == Id);
         }
 
         public List<Developer> GetDevelopers()

@@ -14,11 +14,11 @@ namespace Videogames.Admin.Controllers
     public class VideogamesController : ControllerBase
     {
         private readonly IVideogameFormHandler videogameFormHandler;
-        private readonly IVideogameModelHandler videogameModelHandler;
-        public VideogamesController(IVideogameFormHandler videogameFormHandler, IVideogameModelHandler videogameModelHandler)
+        private readonly IVideogameItemModelBuilder videogameItemModelBuilder;
+        public VideogamesController(IVideogameFormHandler videogameFormHandler, IVideogameItemModelBuilder videogameItemModelBuilder)
         {
             this.videogameFormHandler = videogameFormHandler;
-            this.videogameModelHandler = videogameModelHandler;
+            this.videogameItemModelBuilder = videogameItemModelBuilder;
         }
 
 
@@ -31,7 +31,7 @@ namespace Videogames.Admin.Controllers
         [HttpGet("{id}")]
         public IActionResult Item([FromRoute] int id)
         {
-            return Ok();
+            return Ok(videogameItemModelBuilder.Build(id));
         }
 
         [HttpPost]
