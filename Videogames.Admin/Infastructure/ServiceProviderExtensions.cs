@@ -7,6 +7,7 @@ using Videogames.Admin.Models.Common.Genres.Item;
 using Videogames.Admin.Models.Common.Genres.List;
 using Videogames.Admin.Models.Common.Videogames.CreateEdit;
 using Videogames.Admin.Models.Common.Videogames.Item;
+using Videogames.Admin.Models.Common.Videogames.List;
 using Videogames.DataLayer;
 using Videogames.DataLayer.Entities.Developers.Repositories;
 using Videogames.DataLayer.Entities.Genres.Repositories;
@@ -24,6 +25,7 @@ namespace Videogames.Admin.Infastructure
             services.AddSingleton<IVideogameRepository, VideogameRepository>();
             services.AddSingleton<IVideogameFormHandler, VideogameFormHandler>();
             services.AddSingleton<IVideogameItemModelBuilder, VideogameItemModelBuilder>();
+            services.AddSingleton<IVideogameListModelBuilder, VideogameListModelBuilder>();
             //
             services.AddSingleton<IGenreRepository, GenreRepository>();
             services.AddSingleton<IGenreModelHandler, GenreModelHandler>();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Videogames.Admin.Models.Common.Developers.Item;
 using Videogames.DataLayer.Entities.Developers.Repositories;
 using Videogames.DataLayer.Entities.Genres;
 using Videogames.DataLayer.Entities.Genres.Repositories;
@@ -23,18 +24,18 @@ namespace Videogames.Admin.Models.Common.Videogames.Item
 
         public VideogameItemModel Build(int id)
         {
-            var videogame = videogameRepository.GetVideogameById(id);
-            var genres = genreRepository.GetGenres();
+            var videogame = videogameRepository.GetGenres().FirstOrDefault(vd => vd.Id == id);
+            var genreNames = videogame.Genres.Select(g => g.Name).ToList();
 
-            var model = new VideogameItemModel
+            var developer = developerRepository.GetDeveloperById(videogame.DeveloperId);
+
+            var devModel = new DeveloperItemModel
             {
-                Id = videogame.Id,
-                Name = videogame.Name,
-                Developer = developerRepository.GetDeveloperById(videogame.DeveloperId),
-                //Genres = genres
+                Id = developer.Id,
+                Name = developer.Name,
             };
 
-            return model;
+            return new VideogameItemModel(videogame.Id, videogame.Name, devModel, genreNames);
 
         }
     }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "z71hR6O5EI2MaGctmkOZGfiXTs+Aw1oLG4NzftVFmjDfus7e8P9Eferiz8IWNiZVD/4zzgyx5kNhZwzerWlFwA==",
+  "dgSpecHash": "Y7knkr4hFEULSmd7InyxnqU4etQZ4x61/38wcYHMA5g2RoJINq7nOUWy2gZtr/51HR4UbeLy+FBi1PY81DzOdQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\sec\\videogameWebApi\\Videogames.Admin\\Videogames.Admin.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.4\\microsoft.entityframeworkcore.analyzers.5.0.4.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.4\\microsoft.entityframeworkcore.design.5.0.4.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.4\\microsoft.entityframeworkcore.relational.5.0.4.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.4\\microsoft.entityframeworkcore.tools.5.0.4.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",

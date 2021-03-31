@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Videogames.Admin.Models.Common.Videogames.CreateEdit;
 using Videogames.Admin.Models.Common.Videogames.Item;
+using Videogames.Admin.Models.Common.Videogames.List;
 
 namespace Videogames.Admin.Controllers
 {
@@ -15,17 +16,20 @@ namespace Videogames.Admin.Controllers
     {
         private readonly IVideogameFormHandler videogameFormHandler;
         private readonly IVideogameItemModelBuilder videogameItemModelBuilder;
-        public VideogamesController(IVideogameFormHandler videogameFormHandler, IVideogameItemModelBuilder videogameItemModelBuilder)
+        private readonly IVideogameListModelBuilder videogameListModelBuilder;
+        public VideogamesController(IVideogameFormHandler videogameFormHandler, IVideogameItemModelBuilder videogameItemModelBuilder,
+            IVideogameListModelBuilder videogameListModelBuilder)
         {
             this.videogameFormHandler = videogameFormHandler;
             this.videogameItemModelBuilder = videogameItemModelBuilder;
+            this.videogameListModelBuilder = videogameListModelBuilder;
         }
 
 
         [HttpGet]
         public IActionResult List()
         {
-            return Ok();
+            return Ok(videogameListModelBuilder.Build());
         }
 
         [HttpGet("{id}")]

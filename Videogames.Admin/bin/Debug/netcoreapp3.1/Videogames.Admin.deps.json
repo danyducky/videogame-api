@@ -26,6 +26,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.4",
           "Microsoft.EntityFrameworkCore.Design": "5.0.4",
+          "Microsoft.EntityFrameworkCore.Tools": "5.0.4",
           "Videogames.DataLayer": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -373,6 +374,11 @@
         },
         "compile": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Tools/5.0.4": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "5.0.4"
         }
       },
       "Microsoft.Extensions.Caching.Abstractions/5.0.0": {
@@ -2254,6 +2260,13 @@
       "sha512": "sha512-9Qa6SqX+hJZogo99bICsS6kgQ1C5RtEjPrsvQxjInVdY9QSWsXWIYfem0rv3wi+htwkJuMHVHGSaqG1oeAwe+w==",
       "path": "microsoft.entityframeworkcore.relational/5.0.4",
       "hashPath": "microsoft.entityframeworkcore.relational.5.0.4.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Tools/5.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ldiZtmhBXJBvBHLUUglCL2n0RFoaXwR3fnvY0Tn0U70V4gafA2ny7vf1d/Gh4ai9qyj/wVJOj4RN8HAy4wjqTw==",
+      "path": "microsoft.entityframeworkcore.tools/5.0.4",
+      "hashPath": "microsoft.entityframeworkcore.tools.5.0.4.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/5.0.0": {
       "type": "package",

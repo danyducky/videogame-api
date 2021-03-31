@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Videogames.DataLayer.Entities.Genres;
@@ -9,6 +10,7 @@ namespace Videogames.DataLayer.Entities.Videogames.Repositories
     public class VideogameRepository : IVideogameRepository
     {
         private readonly VideogameDbContext db;
+
         public VideogameRepository(VideogameDbContext _db)
         {
             db = _db;
@@ -27,6 +29,11 @@ namespace Videogames.DataLayer.Entities.Videogames.Repositories
         public Videogame GetVideogameById(int id)
         {
             return db.Videogames.Find(id);
+        }
+
+        public List<Videogame> GetGenres()
+        {
+            return db.Videogames.Include(vd => vd.Genres).ToList();
         }
 
         public List<Videogame> GetVideogames()
@@ -49,6 +56,10 @@ namespace Videogames.DataLayer.Entities.Videogames.Repositories
         {
             db.Videogames.Update(videogame);
         }
-
+        
+        public List<Videogame> GetIncluded()
+        {
+            return db.Videogames.Include(vd => vd.Developer).Include(vd => vd.Genres).ToList();
+        }
     }
 }

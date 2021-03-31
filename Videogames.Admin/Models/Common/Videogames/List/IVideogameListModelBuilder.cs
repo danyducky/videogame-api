@@ -7,6 +7,6 @@ namespace Videogames.Admin.Models.Common.Videogames.List
 {
     public interface IVideogameListModelBuilder
     {
-
+        VideogameListModel Build();
     }
 }
