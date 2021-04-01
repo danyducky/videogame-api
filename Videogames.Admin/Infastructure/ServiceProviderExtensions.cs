@@ -9,10 +9,12 @@ using Videogames.Admin.Models.Common.Videogames.CreateEdit;
 using Videogames.Admin.Models.Common.Videogames.Item;
 using Videogames.Admin.Models.Common.Videogames.List;
 using Videogames.DataLayer;
+using Videogames.DataLayer.Entities;
 using Videogames.DataLayer.Entities.Developers.Repositories;
 using Videogames.DataLayer.Entities.Genres.Repositories;
 using Videogames.DataLayer.Entities.Videogames.Interfaces;
 using Videogames.DataLayer.Entities.Videogames.Repositories;
+using Videogames.DataLayer.Infastructure;
 
 namespace Videogames.Admin.Infastructure
 {
@@ -21,23 +23,22 @@ namespace Videogames.Admin.Infastructure
         public static void AddBuilders(this IServiceCollection services)
         {
             services.AddDbContext<VideogameDbContext>(ServiceLifetime.Transient);
+            services.AddScoped<IEntityRepository<IVideogameEntity>, EntityRepository<IVideogameEntity>>();
 
-            services.AddSingleton<IVideogameRepository, VideogameRepository>();
-            services.AddSingleton<IVideogameFormHandler, VideogameFormHandler>();
-            services.AddSingleton<IVideogameItemModelBuilder, VideogameItemModelBuilder>();
-            services.AddSingleton<IVideogameListModelBuilder, VideogameListModelBuilder>();
+            services.AddScoped<IVideogameRepository, VideogameRepository>();
+            services.AddScoped<IVideogameFormHandler, VideogameFormHandler>();
+            services.AddScoped<IVideogameItemModelBuilder, VideogameItemModelBuilder>();
+            services.AddScoped<IVideogameListModelBuilder, VideogameListModelBuilder>();
             //
-            services.AddSingleton<IGenreRepository, GenreRepository>();
-            services.AddSingleton<IGenreModelHandler, GenreModelHandler>();
-            services.AddSingleton<IGenreStructureFormHandler, GenreStructureFormHandler>();
-            services.AddSingleton<IGenreListModelBuilder, GenreListModelBuilder>();
-            services.AddSingleton<IGenreItemModelBuilder, GenreItemModelBuilder>();
+            services.AddScoped<IGenreRepository, GenreRepository>();
+            services.AddScoped<IGenreStructureFormHandler, GenreStructureFormHandler>();
+            services.AddScoped<IGenreListModelBuilder, GenreListModelBuilder>();
+            services.AddScoped<IGenreItemModelBuilder, GenreItemModelBuilder>();
             //
-            services.AddSingleton<IDeveloperRepository, DeveloperRepository>();
-            services.AddSingleton<IDeveloperModelHandler, DeveloperModelHandler>();
-            services.AddSingleton<IDeveloperStructureFormHandler, DeveloperStructureFormHandler>();
-            services.AddSingleton<IDeveloperItemModelBuilder, DeveloperItemModelBuilder>();
-            services.AddSingleton<IDeveloperListModelBuilder, DeveloperListModelBuilder>();
+            services.AddScoped<IDeveloperRepository, DeveloperRepository>();
+            services.AddScoped<IDeveloperStructureFormHandler, DeveloperStructureFormHandler>();
+            services.AddScoped<IDeveloperItemModelBuilder, DeveloperItemModelBuilder>();
+            services.AddScoped<IDeveloperListModelBuilder, DeveloperListModelBuilder>();
             
             
         }

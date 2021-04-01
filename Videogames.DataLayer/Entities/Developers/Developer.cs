@@ -7,7 +7,8 @@ using Videogames.DataLayer.Entities.Videogames;
 
 namespace Videogames.DataLayer.Entities.Developers
 {
-    public class Developer
+    [Table("developer")]
+    public class Developer : IVideogameEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

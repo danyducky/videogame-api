@@ -8,7 +8,7 @@ namespace Videogames.Admin.Models.Common.Developers.CreateEdit
 {
     public interface IDeveloperStructureFormHandler
     {
-        int HandleCreate(DeveloperItemModel developerItemModel);
-        void HandleEdit(int id, DeveloperItemModel developerItemModel);
+        int HandleCreate(DeveloperForm developerItemModel);
+        void HandleEdit(int id, DeveloperForm developerItemModel);
     }
 }

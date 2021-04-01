@@ -10,7 +10,7 @@ namespace Videogames.Admin.Models.Common.Videogames.List
         public IList<VideogameListItemModel> Videogames { get; set; }
         public VideogameListModel(IList<VideogameListItemModel> videogames)
         {
-            Videogames = videogames;
+            this.Videogames = videogames;
         }
     }
 

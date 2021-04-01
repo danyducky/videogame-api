@@ -8,10 +8,9 @@ namespace Videogames.DataLayer.Entities.Developers.Repositories
     public interface IDeveloperRepository
     {
         List<Developer> GetDevelopers();
-        Developer GetDeveloperById(int Id);
+        Developer GetDeveloperById(int id);
         void Create(Developer developer);
         void Delete(Developer developer);
         void Update(Developer developer);
-        void Save();
     }
 }

@@ -16,12 +16,12 @@ namespace Videogames.Admin.Models.Common.Videogames.List
         public DeveloperItemModel Developer { get; set; }
         public IList<string> Genres { get; set; }
 
-        public VideogameListItemModel(int Id, string Name, DeveloperItemModel Developer, IList<string> Genres)
+        public VideogameListItemModel(int id, string name, DeveloperItemModel developer, IList<string> genres)
         {
-            this.Id = Id;
-            this.Name = Name;
-            this.Developer = Developer;
-            this.Genres = Genres;
+            this.Id = id;
+            this.Name = name;
+            this.Developer = developer;
+            this.Genres = genres;
         }
     }
 }

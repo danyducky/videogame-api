@@ -41,7 +41,7 @@ namespace Videogames.Admin.Controllers
 
 
         [HttpPost]
-        public IActionResult Create([FromBody] GenreItemModel form)
+        public IActionResult Create([FromBody] GenreForm form)
         {
             if (form == null) return BadRequest("form is null");
             var createdId = genreStructureFormHandler.HandleCreate(form);
@@ -50,7 +50,7 @@ namespace Videogames.Admin.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Edit([FromRoute] int id, [FromBody] GenreItemModel form)
+        public IActionResult Edit([FromRoute] int id, [FromBody] GenreForm form)
         {
             genreStructureFormHandler.HandleEdit(id, form);
             return Ok();

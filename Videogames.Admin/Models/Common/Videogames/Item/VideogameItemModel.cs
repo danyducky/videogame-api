@@ -14,12 +14,12 @@ namespace Videogames.Admin.Models.Common.Videogames.Item
         public string Name { get; set; }
         public DeveloperItemModel Developer { get; set; }
         public IList<string> Genres { get; set; }
-        public VideogameItemModel(int Id, string Name, DeveloperItemModel Developer, IList<string> Genres)
+        public VideogameItemModel(int id, string name, DeveloperItemModel developer, IList<string> genres)
         {
-            this.Id = Id;
-            this.Name = Name;
-            this.Developer = Developer;
-            this.Genres = Genres;
+            this.Id = id;
+            this.Name = name;
+            this.Developer = developer;
+            this.Genres = genres;
         }
     }
 }

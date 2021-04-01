@@ -10,9 +10,9 @@ namespace Videogames.DataLayer.Entities.Videogames.Interfaces
         List<Videogame> GetVideogames();
         List<Videogame> GetGenres();
         List<Videogame> GetIncluded();
+        Videogame GetIncludedById(int id);
         void Create(Videogame videogame);
         void Delete(Videogame videogame);
         void Update(Videogame videogame);
-        void Save();
     }
 }

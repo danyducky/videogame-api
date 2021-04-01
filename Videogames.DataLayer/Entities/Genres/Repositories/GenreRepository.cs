@@ -4,46 +4,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Videogames.DataLayer.Entities.Videogames;
+using Videogames.DataLayer.Infastructure;
 
 namespace Videogames.DataLayer.Entities.Genres.Repositories
 {
     public class GenreRepository : IGenreRepository
     {
-        private readonly VideogameDbContext db;
-        public GenreRepository(VideogameDbContext db)
+        private readonly IEntityRepository<IVideogameEntity> entityRepository;
+        public GenreRepository(IEntityRepository<IVideogameEntity> entityRepository)
         {
-            this.db = db;
+            this.entityRepository = entityRepository;
         }
 
         public void Create(Genre genre)
         {
-            db.Genres.Add(genre);
+            entityRepository.InsertOnSave(genre);
         }
 
         public void Delete(Genre genre)
         {
-            db.Genres.Remove(genre);
+            entityRepository.DeleteOnSave(genre);
         }
 
         public Genre GetGenreById(int id)
         {
-            var item = db.Genres.Find(id);
-            return item;
+            return entityRepository.GetTable<Genre>().FirstOrDefault(g => g.Id == id);
         }
 
         public List<Genre> GetGenres()
         {
-            return db.Genres.ToList();
-        }
-
-        public void Save()
-        {
-            db.SaveChanges();
+            return entityRepository.GetTableInternal<Genre>().ToList();
         }
 
         public void Update(Genre genre)
         {
-            db.Genres.Update(genre);
+            entityRepository.GetTableInternal<Genre>().Update(genre);
         }
     }
 }

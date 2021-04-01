@@ -8,11 +8,11 @@ namespace Videogames.Admin.Models.Common.Developers.List
 {
     public class DeveloperListModel
     {
-        public IList<DeveloperItemModel> developerItemModels { get; set; }
+        public IList<DeveloperItemModel> DeveloperItemModels { get; set; }
         
         public DeveloperListModel(IList<DeveloperItemModel> developerItemModels)
         {
-            this.developerItemModels = developerItemModels; 
+            this.DeveloperItemModels = developerItemModels; 
         }
     }
 }

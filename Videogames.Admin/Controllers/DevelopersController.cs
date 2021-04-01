@@ -39,7 +39,7 @@ namespace Videogames.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] DeveloperItemModel form)
+        public IActionResult Create([FromBody] DeveloperForm form)
         {
             var id = developerStructureFormHandler.HandleCreate(form);
 
@@ -47,7 +47,7 @@ namespace Videogames.Admin.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Edit([FromRoute] int id, [FromBody] DeveloperItemModel form)
+        public IActionResult Edit([FromRoute] int id, [FromBody] DeveloperForm form)
         {
             developerStructureFormHandler.HandleEdit(id, form);
             return Ok();

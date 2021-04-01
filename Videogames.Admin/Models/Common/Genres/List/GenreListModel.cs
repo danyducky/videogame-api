@@ -9,11 +9,11 @@ namespace Videogames.Admin.Models.Common.Genres.List
 {
     public class GenreListModel
     {
-        public IList<GenreItemModel> genreListItemModels { get; set; }
+        public IList<GenreItemModel> GenreListItemModels { get; set; }
 
         public GenreListModel(IList<GenreItemModel> genreListItemModels)
         {
-            this.genreListItemModels = genreListItemModels;
+            this.GenreListItemModels = genreListItemModels;
         }
 
     }

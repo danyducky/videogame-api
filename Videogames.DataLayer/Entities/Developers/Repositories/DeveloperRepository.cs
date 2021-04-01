@@ -2,45 +2,41 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Videogames.DataLayer.Infastructure;
 
 namespace Videogames.DataLayer.Entities.Developers.Repositories
 {
     public class DeveloperRepository : IDeveloperRepository
     {
-        private readonly VideogameDbContext videogameDbContext;
-        public DeveloperRepository(VideogameDbContext videogameDbContext)
+        private readonly IEntityRepository<IVideogameEntity> entityRepository;
+        public DeveloperRepository(IEntityRepository<IVideogameEntity> entityRepository)
         {
-            this.videogameDbContext = videogameDbContext;
+            this.entityRepository = entityRepository;
         }
 
         public void Create(Developer developer)
         {
-            videogameDbContext.Developers.Add(developer);
+            entityRepository.InsertOnSave(developer);
         }
 
         public void Delete(Developer developer)
         {
-            videogameDbContext.Remove(developer);
+            entityRepository.DeleteOnSave(developer);
         }
 
-        public Developer GetDeveloperById(int Id)
+        public Developer GetDeveloperById(int id)
         {
-            return videogameDbContext.Developers.FirstOrDefault(dev => dev.Id == Id);
+            return entityRepository.GetTable<Developer>().FirstOrDefault(dev => dev.Id == id);
         }
 
         public List<Developer> GetDevelopers()
         {
-            return videogameDbContext.Developers.ToList();
-        }
-
-        public void Save()
-        {
-            videogameDbContext.SaveChanges();
+            return entityRepository.GetTable<Developer>().ToList();
         }
 
         public void Update(Developer developer)
         {
-            videogameDbContext.Developers.Update(developer);
+            entityRepository.GetTableInternal<Developer>().Update(developer);
         }
     }
 }

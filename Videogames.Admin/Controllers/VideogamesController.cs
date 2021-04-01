@@ -46,8 +46,9 @@ namespace Videogames.Admin.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Edit([FromRoute] int id)
+        public IActionResult Edit([FromRoute] int id, [FromBody] VideogameForm form)
         {
+            videogameFormHandler.HandleEdit(id, form);
             return Ok();
         }
 

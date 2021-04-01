@@ -1,65 +1,76 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Videogames.DataLayer.Entities.Genres;
 using Videogames.DataLayer.Entities.Videogames.Interfaces;
+using Videogames.DataLayer.Infastructure;
 
 namespace Videogames.DataLayer.Entities.Videogames.Repositories
 {
     public class VideogameRepository : IVideogameRepository
     {
-        private readonly VideogameDbContext db;
-
-        public VideogameRepository(VideogameDbContext _db)
+        private readonly IEntityRepository<IVideogameEntity> entityRepository;
+        public VideogameRepository(IEntityRepository<IVideogameEntity> entityRepository)
         {
-            db = _db;
+            this.entityRepository = entityRepository;
         }
 
         public void Create(Videogame videogame)
         {
-            db.Videogames.Add(videogame);
+            entityRepository.InsertOnSave(videogame);
         }
 
         public void Delete(Videogame videogame)
         {
-            db.Videogames.Remove(videogame);
+            entityRepository.DeleteOnSave(videogame);
         }
 
         public Videogame GetVideogameById(int id)
         {
-            return db.Videogames.Find(id);
+            return entityRepository.GetTable<Videogame>().FirstOrDefault(vg => vg.Id == id);
         }
 
         public List<Videogame> GetGenres()
         {
-            return db.Videogames.Include(vd => vd.Genres).ToList();
+            return entityRepository.GetTableInternal<Videogame>().Include(vg => vg.Genres).ToList();
         }
 
         public List<Videogame> GetVideogames()
         {
-            return db.Videogames.ToList();
+            return entityRepository.GetTable<Videogame>().ToList();
         }
 
         public void InsertRange(Videogame videogame, IList<Genre> genres)
         {
-            var game = db.Videogames.Find(videogame);
+            var game = entityRepository.GetTableInternal<Videogame>().Find(videogame);
             game.Genres.AddRange(genres);
         }
 
         public void Save()
         {
-            db.SaveChanges();
+            entityRepository.SaveChanges();
         }
 
         public void Update(Videogame videogame)
         {
-            db.Videogames.Update(videogame);
+            entityRepository.GetTableInternal<Videogame>()
+                .Update(videogame);
         }
         
         public List<Videogame> GetIncluded()
         {
-            return db.Videogames.Include(vd => vd.Developer).Include(vd => vd.Genres).ToList();
+            return entityRepository.GetTableInternal<Videogame>()
+                .Include(vd => vd.Developer)
+                .Include(vd => vd.Genres)
+                .ToList();
+        }
+
+        public Videogame GetIncludedById(int id)
+        {   
+            return entityRepository.GetTableInternal<Videogame>()
+                .Include(vd => vd.Developer)
+                .Include(vd => vd.Genres)
+                .FirstOrDefault(vd => vd.Id == id);
         }
     }
 }

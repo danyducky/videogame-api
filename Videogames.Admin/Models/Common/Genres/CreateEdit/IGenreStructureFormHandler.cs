@@ -8,7 +8,7 @@ namespace Videogames.Admin.Models.Common.Genres.CreateEdit
 {
     public interface IGenreStructureFormHandler
     {
-        int HandleCreate(GenreItemModel form);
-        void HandleEdit(int id, GenreItemModel form);
+        int HandleCreate(GenreForm form);
+        void HandleEdit(int id, GenreForm form);
     }
 }
