@@ -10,11 +10,11 @@ using Videogames.DataLayer.Infastructure;
 
 namespace Videogames.Admin.Models.Common.Genres.CreateEdit
 {
-    public class GenreStructureFormHandler : IGenreStructureFormHandler
+    public class GenreFormHandler : IGenreFormHandler
     {
         private readonly IEntityRepository<IVideogameEntity> entityRepository;
         private readonly IGenreRepository genreRepository;
-        public GenreStructureFormHandler(IEntityRepository<IVideogameEntity> entityRepository, IGenreRepository genreRepository)
+        public GenreFormHandler(IEntityRepository<IVideogameEntity> entityRepository, IGenreRepository genreRepository)
         {
             this.entityRepository = entityRepository;
             this.genreRepository = genreRepository;

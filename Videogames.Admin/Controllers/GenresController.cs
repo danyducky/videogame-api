@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Videogames.Admin.Models.Common.Genres.CreateEdit;
+using Videogames.Admin.Models.Common.Genres.Delete;
 using Videogames.Admin.Models.Common.Genres.Item;
 using Videogames.Admin.Models.Common.Genres.List;
 
@@ -14,15 +10,17 @@ namespace Videogames.Admin.Controllers
     [ApiController]
     public class GenresController : ControllerBase
     {
-        private readonly IGenreStructureFormHandler genreStructureFormHandler;
+        private readonly IGenreFormHandler genreFormHandler;
         private readonly IGenreListModelBuilder genreListModelBuilder;
         private readonly IGenreItemModelBuilder genreItemModelBuilder;
-        public GenresController(IGenreStructureFormHandler genreStructureFormHandler, IGenreListModelBuilder genreListModelBuilder,
-            IGenreItemModelBuilder genreItemModelBuilder)
+        private readonly IGenreDeleteHandler genreDeleteHandler;
+        public GenresController(IGenreFormHandler genreFormHandler, IGenreListModelBuilder genreListModelBuilder,
+            IGenreItemModelBuilder genreItemModelBuilder, IGenreDeleteHandler genreDeleteHandler)
         {
-            this.genreStructureFormHandler = genreStructureFormHandler;
+            this.genreFormHandler = genreFormHandler;
             this.genreListModelBuilder = genreListModelBuilder;
             this.genreItemModelBuilder = genreItemModelBuilder;
+            this.genreDeleteHandler = genreDeleteHandler;
         }
 
 
@@ -44,7 +42,7 @@ namespace Videogames.Admin.Controllers
         public IActionResult Create([FromBody] GenreForm form)
         {
             if (form == null) return BadRequest("form is null");
-            var createdId = genreStructureFormHandler.HandleCreate(form);
+            var createdId = genreFormHandler.HandleCreate(form);
 
             return Ok(createdId);
         }
@@ -52,7 +50,14 @@ namespace Videogames.Admin.Controllers
         [HttpPut("{id}")]
         public IActionResult Edit([FromRoute] int id, [FromBody] GenreForm form)
         {
-            genreStructureFormHandler.HandleEdit(id, form);
+            genreFormHandler.HandleEdit(id, form);
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            genreDeleteHandler.HandleDelete(id);
             return Ok();
         }
 

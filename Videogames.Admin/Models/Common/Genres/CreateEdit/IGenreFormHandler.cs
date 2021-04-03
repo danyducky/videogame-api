@@ -6,7 +6,7 @@ using Videogames.Admin.Models.Common.Genres.Item;
 
 namespace Videogames.Admin.Models.Common.Genres.CreateEdit
 {
-    public interface IGenreStructureFormHandler
+    public interface IGenreFormHandler
     {
         int HandleCreate(GenreForm form);
         void HandleEdit(int id, GenreForm form);

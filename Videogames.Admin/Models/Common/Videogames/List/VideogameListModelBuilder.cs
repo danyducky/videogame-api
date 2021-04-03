@@ -26,8 +26,12 @@ namespace Videogames.Admin.Models.Common.Videogames.List
 
 
             var model = videogames
-                .Select(vg => new VideogameListItemModel(vg.Id, vg.Name,
-                new DeveloperItemModel { Id = vg.Developer.Id, Name = vg.Developer.Name }, vg.Genres.Select(g => g.Name).ToList())).ToList();
+                .Select(vg => new VideogameListItemModel(
+                    vg.Id, 
+                    vg.Name,
+                    new DeveloperItemModel { Id = vg.Developer.Id, Name = vg.Developer.Name },
+                    vg.Genres.Select(g => g.Name).ToList())
+                ).ToList();
 
 
             return new VideogameListModel(model);

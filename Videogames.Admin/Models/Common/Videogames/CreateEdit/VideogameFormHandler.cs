@@ -53,14 +53,12 @@ namespace Videogames.Admin.Models.Common.Videogames.CreateEdit
         public void HandleEdit(int id, VideogameForm form)
         {
             var videogame = videogameRepository.GetIncludedById(id);
-            var genreVideogameList = videogame.Genres.ToList();
 
             var formGenreNames = form.Genres.Select(g => g.Name).ToList();
             var genresForVideogame = genreRepository.GetGenres().Where(g => formGenreNames.Contains(g.Name)).ToList();
 
-            foreach(var genre in genreVideogameList)
+            foreach(var genre in videogame.Genres.ToList())
             {
-                genre.Videogames.Remove(videogame);
                 videogame.Genres.Remove(genre);
             }
 
@@ -69,7 +67,7 @@ namespace Videogames.Admin.Models.Common.Videogames.CreateEdit
 
             foreach(var genre in genresForVideogame)
             {
-                genre.Videogames.Add(videogame);
+                videogame.Genres.Add(genre);
             }
 
 

@@ -10,11 +10,11 @@ using Videogames.DataLayer.Infastructure;
 
 namespace Videogames.Admin.Models.Common.Developers.CreateEdit
 {
-    public class DeveloperStructureFormHandler : IDeveloperStructureFormHandler
+    public class DeveloperFormHandler : IDeveloperFormHandler
     {
         private readonly IEntityRepository<IVideogameEntity> entityRepository;
         private readonly IDeveloperRepository developerRepository;
-        public DeveloperStructureFormHandler(IEntityRepository<IVideogameEntity> entityRepository, IDeveloperRepository developerRepository)
+        public DeveloperFormHandler(IEntityRepository<IVideogameEntity> entityRepository, IDeveloperRepository developerRepository)
         {
             this.entityRepository = entityRepository;
             this.developerRepository = developerRepository;

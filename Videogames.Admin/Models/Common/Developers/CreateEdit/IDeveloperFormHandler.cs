@@ -6,7 +6,7 @@ using Videogames.Admin.Models.Common.Developers.Item;
 
 namespace Videogames.Admin.Models.Common.Developers.CreateEdit
 {
-    public interface IDeveloperStructureFormHandler
+    public interface IDeveloperFormHandler
     {
         int HandleCreate(DeveloperForm developerItemModel);
         void HandleEdit(int id, DeveloperForm developerItemModel);

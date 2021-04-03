@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Videogames.Admin.Models.Common.Developers.CreateEdit;
+using Videogames.Admin.Models.Common.Developers.Delete;
 using Videogames.Admin.Models.Common.Developers.Item;
 using Videogames.Admin.Models.Common.Developers.List;
 
@@ -14,15 +15,17 @@ namespace Videogames.Admin.Controllers
     [ApiController]
     public class DevelopersController : ControllerBase
     {
-        private readonly IDeveloperStructureFormHandler developerStructureFormHandler;
+        private readonly IDeveloperFormHandler developerFormHandler;
         private readonly IDeveloperItemModelBuilder developerItemModelBuilder;
         private readonly IDeveloperListModelBuilder developerListModelBuilder;
-        public DevelopersController(IDeveloperStructureFormHandler developerStructureFormHandler, IDeveloperItemModelBuilder developerItemModelBuilder,
-            IDeveloperListModelBuilder developerListModelBuilder)
+        private readonly IDeveloperDeleteHandler developerDeleteHandler;
+        public DevelopersController(IDeveloperFormHandler developerFormHandler, IDeveloperItemModelBuilder developerItemModelBuilder,
+            IDeveloperListModelBuilder developerListModelBuilder, IDeveloperDeleteHandler developerDeleteHandler)
         {
-            this.developerStructureFormHandler = developerStructureFormHandler;
+            this.developerFormHandler = developerFormHandler;
             this.developerItemModelBuilder = developerItemModelBuilder;
             this.developerListModelBuilder = developerListModelBuilder;
+            this.developerDeleteHandler = developerDeleteHandler;
         }
 
 
@@ -41,7 +44,7 @@ namespace Videogames.Admin.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] DeveloperForm form)
         {
-            var id = developerStructureFormHandler.HandleCreate(form);
+            var id = developerFormHandler.HandleCreate(form);
 
             return Ok(id);
         }
@@ -49,7 +52,14 @@ namespace Videogames.Admin.Controllers
         [HttpPut("{id}")]
         public IActionResult Edit([FromRoute] int id, [FromBody] DeveloperForm form)
         {
-            developerStructureFormHandler.HandleEdit(id, form);
+            developerFormHandler.HandleEdit(id, form);
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            developerDeleteHandler.HandleDelete(id);
             return Ok();
         }
 
