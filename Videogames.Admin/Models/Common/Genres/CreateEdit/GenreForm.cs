@@ -7,7 +7,6 @@ namespace Videogames.Admin.Models.Common.Genres.CreateEdit
 {
     public class GenreForm
     {
-        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

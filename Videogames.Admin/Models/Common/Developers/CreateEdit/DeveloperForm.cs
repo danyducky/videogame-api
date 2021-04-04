@@ -7,7 +7,6 @@ namespace Videogames.Admin.Models.Common.Developers.CreateEdit
 {
     public class DeveloperForm
     {
-        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

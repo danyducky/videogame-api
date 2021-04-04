@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Videogames.Admin.Models.Common.Genres.Item;
 using Videogames.DataLayer.Entities;
 using Videogames.DataLayer.Entities.Genres;
+using Videogames.DataLayer.Entities.Genres.Factories;
 using Videogames.DataLayer.Entities.Genres.Repositories;
 using Videogames.DataLayer.Infastructure;
 
@@ -14,15 +15,18 @@ namespace Videogames.Admin.Models.Common.Genres.CreateEdit
     {
         private readonly IEntityRepository<IVideogameEntity> entityRepository;
         private readonly IGenreRepository genreRepository;
-        public GenreFormHandler(IEntityRepository<IVideogameEntity> entityRepository, IGenreRepository genreRepository)
+        private readonly IGenreFactory genreFactory;
+        public GenreFormHandler(IEntityRepository<IVideogameEntity> entityRepository, IGenreRepository genreRepository,
+            IGenreFactory genreFactory)
         {
             this.entityRepository = entityRepository;
             this.genreRepository = genreRepository;
+            this.genreFactory = genreFactory;
         }
 
         public int HandleCreate(GenreForm form)
         {
-            Genre genre = new Genre { Id = form.Id, Name = form.Name };
+            Genre genre = genreFactory.Create(form.Name);
 
             entityRepository.InsertOnSave(genre);
             entityRepository.SaveChanges();

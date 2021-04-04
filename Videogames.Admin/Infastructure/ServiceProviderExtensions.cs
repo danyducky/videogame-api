@@ -14,8 +14,11 @@ using Videogames.Admin.Models.Common.Videogames.List;
 using Videogames.Admin.Models.Common.Videogames.Validator;
 using Videogames.DataLayer;
 using Videogames.DataLayer.Entities;
+using Videogames.DataLayer.Entities.Developers.Factories;
 using Videogames.DataLayer.Entities.Developers.Repositories;
+using Videogames.DataLayer.Entities.Genres.Factories;
 using Videogames.DataLayer.Entities.Genres.Repositories;
+using Videogames.DataLayer.Entities.Videogames.Factories;
 using Videogames.DataLayer.Entities.Videogames.Interfaces;
 using Videogames.DataLayer.Entities.Videogames.Repositories;
 using Videogames.DataLayer.Infastructure;
@@ -28,6 +31,9 @@ namespace Videogames.Admin.Infastructure
         {
             services.AddDbContext<VideogameDbContext>(ServiceLifetime.Transient);
             services.AddScoped<IEntityRepository<IVideogameEntity>, EntityRepository<IVideogameEntity>>();
+            services.AddScoped<IDeveloperFactory, DeveloperFactory>();
+            services.AddScoped<IGenreFactory, GenreFactory>();
+            services.AddScoped<IVideogameFactory, VideogameFactory>();
 
             services.AddScoped<IVideogameRepository, VideogameRepository>();
             services.AddScoped<IVideogameFormHandler, VideogameFormHandler>();

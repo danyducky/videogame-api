@@ -11,11 +11,9 @@ namespace Videogames.Admin.Models.Common.Videogames.Validator
     public class VideogameValidator : IVideogameValidator
     {
         private readonly IDeveloperRepository developerRepository;
-        private readonly IGenreRepository genreRepository;
-        public VideogameValidator(IDeveloperRepository developerRepository, IGenreRepository genreRepository)
+        public VideogameValidator(IDeveloperRepository developerRepository)
         {
             this.developerRepository = developerRepository;
-            this.genreRepository = genreRepository;
         }
 
         public VideogameValidatorResult Validate(VideogameForm form)
@@ -28,10 +26,10 @@ namespace Videogames.Admin.Models.Common.Videogames.Validator
             }
             else if (form.Name.Length < 5)
             {
-                errors.Add("Length must be more then 5 characters");
+                errors.Add("Name length must be more then 5 characters");
             } 
             else if (form.Name.Length > 20) {
-                errors.Add("Length must be less then 20 characters");
+                errors.Add("Name length must be less then 20 characters");
             }
 
             var developer = developerRepository.GetDeveloperById(form.DeveloperId);

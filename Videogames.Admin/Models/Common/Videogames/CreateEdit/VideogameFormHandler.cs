@@ -9,6 +9,7 @@ using Videogames.DataLayer.Entities.Developers.Repositories;
 using Videogames.DataLayer.Entities.Genres;
 using Videogames.DataLayer.Entities.Genres.Repositories;
 using Videogames.DataLayer.Entities.Videogames;
+using Videogames.DataLayer.Entities.Videogames.Factories;
 using Videogames.DataLayer.Entities.Videogames.Interfaces;
 using Videogames.DataLayer.Infastructure;
 
@@ -18,26 +19,23 @@ namespace Videogames.Admin.Models.Common.Videogames.CreateEdit
     {
         private readonly IEntityRepository<IVideogameEntity> entityRepository;
         private readonly IVideogameRepository videogameRepository;
-        private readonly IDeveloperRepository developerRepository;
         private readonly IGenreRepository genreRepository;
-        public VideogameFormHandler(IEntityRepository<IVideogameEntity> entityRepository, IVideogameRepository videogameRepository, IDeveloperRepository developerRepository, IGenreRepository genreRepository)
+        private readonly IVideogameFactory videogameFactory;
+        public VideogameFormHandler(IEntityRepository<IVideogameEntity> entityRepository, IVideogameRepository videogameRepository,
+            IGenreRepository genreRepository, IVideogameFactory videogameFactory)
         {
             this.entityRepository = entityRepository;
             this.videogameRepository = videogameRepository;
-            this.developerRepository = developerRepository;
             this.genreRepository = genreRepository;
+            this.videogameFactory = videogameFactory;
         }
 
         public int HandleCreate(VideogameForm form)
         {
             var g = form.Genres.Select(genre => genre.Name);
             var genres = genreRepository.GetGenres().Where(genre => g.Contains(genre.Name)).ToList();
-
-            var videogame = new Videogame
-            {
-                Name = form.Name,
-                DeveloperId = form.DeveloperId
-            };
+            
+            var videogame = videogameFactory.Create(form.Name, form.DeveloperId);
 
             foreach (var genre in genres)
             {

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Videogames.Admin.Models.Common.Developers.Item;
 using Videogames.DataLayer.Entities;
 using Videogames.DataLayer.Entities.Developers;
+using Videogames.DataLayer.Entities.Developers.Factories;
 using Videogames.DataLayer.Entities.Developers.Repositories;
 using Videogames.DataLayer.Infastructure;
 
@@ -14,19 +15,18 @@ namespace Videogames.Admin.Models.Common.Developers.CreateEdit
     {
         private readonly IEntityRepository<IVideogameEntity> entityRepository;
         private readonly IDeveloperRepository developerRepository;
-        public DeveloperFormHandler(IEntityRepository<IVideogameEntity> entityRepository, IDeveloperRepository developerRepository)
+        private readonly IDeveloperFactory developerFactory;
+        public DeveloperFormHandler(IEntityRepository<IVideogameEntity> entityRepository, IDeveloperRepository developerRepository, 
+            IDeveloperFactory developerFactory)
         {
             this.entityRepository = entityRepository;
             this.developerRepository = developerRepository;
+            this.developerFactory = developerFactory;
         }
 
         public int HandleCreate(DeveloperForm form)
         {
-            var developer = new Developer
-            {
-                Id = form.Id,
-                Name = form.Name
-            };
+            var developer = developerFactory.Create(form.Name);
 
             entityRepository.InsertOnSave(developer);
             entityRepository.SaveChanges();
