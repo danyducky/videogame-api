@@ -40,5 +40,9 @@ namespace Videogames.DataLayer.Infastructure
             db.SaveChanges();
         }
 
+        void IEntityRepository<TEntityInterface>.AttachOnSave<TEntity>(TEntity entity)
+        {
+            GetTableInternal<TEntity>().Attach(entity);
+        }
     }
 }

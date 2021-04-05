@@ -12,6 +12,7 @@ namespace Videogames.DataLayer.Infastructure
         IQueryable<TEntity> GetTable<TEntity>() where TEntity : class, TEntityInterface;
         void InsertOnSave<TEntity>(TEntity entity) where TEntity : class, TEntityInterface;
         void DeleteOnSave<TEntity>(TEntity entity) where TEntity : class, TEntityInterface;
+        void AttachOnSave<TEntity>(TEntity entity) where TEntity : class, TEntityInterface;
         void SaveChanges();
     }
 }

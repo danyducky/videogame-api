@@ -51,6 +51,7 @@ namespace Videogames.Admin.Models.Common.Videogames.CreateEdit
         public void HandleEdit(int id, VideogameForm form)
         {
             var videogame = videogameRepository.GetIncludedById(id);
+            entityRepository.AttachOnSave(videogame);
 
             var formGenreNames = form.Genres.Select(g => g.Name).ToList();
             var genresForVideogame = genreRepository.GetGenres().Where(g => formGenreNames.Contains(g.Name)).ToList();
@@ -67,9 +68,7 @@ namespace Videogames.Admin.Models.Common.Videogames.CreateEdit
             {
                 videogame.Genres.Add(genre);
             }
-
-
-            videogameRepository.Update(videogame);
+            
             entityRepository.SaveChanges();
         }
     }

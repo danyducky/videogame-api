@@ -16,16 +16,6 @@ namespace Videogames.DataLayer.Entities.Genres.Repositories
             this.entityRepository = entityRepository;
         }
 
-        public void Create(Genre genre)
-        {
-            entityRepository.InsertOnSave(genre);
-        }
-
-        public void Delete(Genre genre)
-        {
-            entityRepository.DeleteOnSave(genre);
-        }
-
         public Genre GetGenreById(int id)
         {
             return entityRepository.GetTable<Genre>().FirstOrDefault(g => g.Id == id);
@@ -34,11 +24,6 @@ namespace Videogames.DataLayer.Entities.Genres.Repositories
         public List<Genre> GetGenres()
         {
             return entityRepository.GetTableInternal<Genre>().ToList();
-        }
-
-        public void Update(Genre genre)
-        {
-            entityRepository.GetTableInternal<Genre>().Update(genre);
         }
     }
 }

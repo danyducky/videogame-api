@@ -39,8 +39,6 @@ C:\Users\user\Desktop\sec\videogameWebApi\Videogames.Admin\bin\Debug\netcoreapp3
 C:\Users\user\Desktop\sec\videogameWebApi\Videogames.Admin\bin\Debug\netcoreapp3.1\Videogames.DataLayer.pdb
 C:\Users\user\Desktop\sec\videogameWebApi\Videogames.Admin\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\user\Desktop\sec\videogameWebApi\Videogames.Admin\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\user\Desktop\sec\videogameWebApi\Videogames.Admin\obj\Debug\netcoreapp3.1\Videogames.Admin.csproj.CoreCompileInputs.cache
-C:\Users\user\Desktop\sec\videogameWebApi\Videogames.Admin\obj\Debug\netcoreapp3.1\Videogames.Admin.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\morik\Desktop\Априкод\videogameWebApi\Videogames.Admin\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\morik\Desktop\Априкод\videogameWebApi\Videogames.Admin\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\morik\Desktop\Априкод\videogameWebApi\Videogames.Admin\bin\Debug\netcoreapp3.1\Videogames.DataLayer.deps.json
@@ -87,3 +85,10 @@ C:\Users\morik\Desktop\Априкод\videogameWebApi\Videogames.Admin\obj\Debug
 C:\Users\morik\Desktop\Априкод\videogameWebApi\Videogames.Admin\obj\Debug\netcoreapp3.1\Videogames.Admin.dll
 C:\Users\morik\Desktop\Априкод\videogameWebApi\Videogames.Admin\obj\Debug\netcoreapp3.1\Videogames.Admin.pdb
 C:\Users\morik\Desktop\Априкод\videogameWebApi\Videogames.Admin\obj\Debug\netcoreapp3.1\Videogames.Admin.genruntimeconfig.cache
+C:\Users\user\Desktop\sec\videogameWebApi\Videogames.Admin\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\user\Desktop\sec\videogameWebApi\Videogames.Admin\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\user\Desktop\sec\videogameWebApi\Videogames.Admin\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\user\Desktop\sec\videogameWebApi\Videogames.Admin\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\user\Desktop\sec\videogameWebApi\Videogames.Admin\obj\Debug\netcoreapp3.1\Videogames.Admin.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\sec\videogameWebApi\Videogames.Admin\obj\Debug\netcoreapp3.1\Videogames.Admin.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\user\Desktop\sec\videogameWebApi\Videogames.Admin\obj\Debug\netcoreapp3.1\Videogames.Admin.MvcApplicationPartsAssemblyInfo.cache

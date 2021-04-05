@@ -14,16 +14,6 @@ namespace Videogames.DataLayer.Entities.Developers.Repositories
             this.entityRepository = entityRepository;
         }
 
-        public void Create(Developer developer)
-        {
-            entityRepository.InsertOnSave(developer);
-        }
-
-        public void Delete(Developer developer)
-        {
-            entityRepository.DeleteOnSave(developer);
-        }
-
         public Developer GetDeveloperById(int id)
         {
             return entityRepository.GetTable<Developer>().FirstOrDefault(dev => dev.Id == id);
@@ -32,11 +22,6 @@ namespace Videogames.DataLayer.Entities.Developers.Repositories
         public List<Developer> GetDevelopers()
         {
             return entityRepository.GetTable<Developer>().ToList();
-        }
-
-        public void Update(Developer developer)
-        {
-            entityRepository.GetTableInternal<Developer>().Update(developer);
         }
     }
 }

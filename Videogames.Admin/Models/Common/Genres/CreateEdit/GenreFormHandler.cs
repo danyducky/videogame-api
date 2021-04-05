@@ -39,10 +39,9 @@ namespace Videogames.Admin.Models.Common.Genres.CreateEdit
             var genre = genreRepository.GetGenreById(id);
 
             if (genre == null) return;
+            entityRepository.AttachOnSave(genre);
 
             genre.Name = form.Name;
-
-            genreRepository.Update(genre);
 
             entityRepository.SaveChanges();
         }

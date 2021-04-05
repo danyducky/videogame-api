@@ -39,10 +39,9 @@ namespace Videogames.Admin.Models.Common.Developers.CreateEdit
             var developer = developerRepository.GetDeveloperById(id);
 
             if (developer == null) return;
+            entityRepository.AttachOnSave(developer);
 
             developer.Name = form.Name;
-
-            developerRepository.Update(developer);
 
             entityRepository.SaveChanges();
         }

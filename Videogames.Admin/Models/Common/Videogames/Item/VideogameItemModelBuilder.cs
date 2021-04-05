@@ -25,6 +25,7 @@ namespace Videogames.Admin.Models.Common.Videogames.Item
         public VideogameItemModel Build(int id)
         {
             var videogame = videogameRepository.GetIncludedById(id);
+
             var genreNames = videogame.Genres.Select(g => g.Name).ToList();
 
             var developer = developerRepository.GetDeveloperById(videogame.DeveloperId);

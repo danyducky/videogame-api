@@ -10,8 +10,5 @@ namespace Videogames.DataLayer.Entities.Genres.Repositories
     {
         List<Genre> GetGenres();
         Genre GetGenreById(int id);
-        void Create(Genre genre);
-        void Delete(Genre genre);
-        void Update(Genre genre);
     }
 }
