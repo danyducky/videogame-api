@@ -15,16 +15,6 @@ namespace Videogames.DataLayer.Entities.Videogames.Repositories
             this.entityRepository = entityRepository;
         }
 
-        //public void Create(Videogame videogame)
-        //{
-        //    entityRepository.InsertOnSave(videogame);
-        //}
-
-        //public void Delete(Videogame videogame)
-        //{
-        //    entityRepository.DeleteOnSave(videogame);
-        //}
-
         public Videogame GetVideogameById(int id)
         {
             return entityRepository.GetTable<Videogame>().FirstOrDefault(vg => vg.Id == id);
@@ -39,18 +29,6 @@ namespace Videogames.DataLayer.Entities.Videogames.Repositories
         {
             return entityRepository.GetTable<Videogame>().ToList();
         }
-
-        //public void InsertRange(Videogame videogame, IList<Genre> genres)
-        //{
-        //    var game = entityRepository.GetTableInternal<Videogame>().Find(videogame);
-        //    game.Genres.AddRange(genres);
-        //}
-
-        //public void Update(Videogame videogame)
-        //{
-        //    entityRepository.GetTableInternal<Videogame>()
-        //        .Update(videogame);
-        //}
 
         public List<Videogame> GetIncluded()
         {
