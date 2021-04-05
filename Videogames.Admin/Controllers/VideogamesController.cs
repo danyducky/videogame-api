@@ -32,19 +32,32 @@ namespace Videogames.Admin.Controllers
             this.videogameValidator = videogameValidator;
         }
 
-
+        /// <summary>
+        /// Метод для вывода списка всех видеоигр
+        /// </summary>
+        /// <returns>Список видеоигр</returns>
         [HttpGet]
         public IActionResult List()
         {
             return Ok(videogameListModelBuilder.Build());
         }
 
+        /// <summary>
+        /// Метод для вывода конкретного элемента из списка игр
+        /// </summary>
+        /// <param name="id">Идентификатор видеоигры</param>
+        /// <returns>Информация об одной видеоигре</returns>
         [HttpGet("{id}")]
         public IActionResult Item([FromRoute] int id)
         {
             return Ok(videogameItemModelBuilder.Build(id));
         }
 
+        /// <summary>
+        /// Метод для создания видеоигры
+        /// </summary>
+        /// <param name="form">Форма видеоигры</param>
+        /// <returns>200 при успехе, 400 при ошибке валидации</returns>
         [HttpPost]
         public IActionResult Create([FromBody]VideogameForm form)
         {
@@ -61,6 +74,12 @@ namespace Videogames.Admin.Controllers
             }
         }
 
+        /// <summary>
+        /// Метод для редактирования существующей видеоигры
+        /// </summary>
+        /// <param name="id">Идентификатор видеоигры</param>
+        /// <param name="form">Форма видеоигры</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Edit([FromRoute] int id, [FromBody] VideogameForm form)
         {
@@ -68,6 +87,11 @@ namespace Videogames.Admin.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Метод для удаления видеоигры
+        /// </summary>
+        /// <param name="id">Идентификатор видеоигры</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult Delete([FromRoute] int id)
         {

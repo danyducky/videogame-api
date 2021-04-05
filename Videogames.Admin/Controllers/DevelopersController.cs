@@ -28,19 +28,33 @@ namespace Videogames.Admin.Controllers
             this.developerDeleteHandler = developerDeleteHandler;
         }
 
-
+        /// <summary>
+        /// Метод для возврата списка разработчиков
+        /// </summary>
+        /// <returns>Список разработчиков</returns>
         [HttpGet]
         public IActionResult List()
         {
             return Ok(developerListModelBuilder.Build());
         }
 
+
+        /// <summary>
+        /// Возвращает элемент из списка разработчиков
+        /// </summary>
+        /// <param name="id">Идентификатор разработчика</param>
+        /// <returns></returns>
         [HttpGet("{Id}")]
         public IActionResult Item([FromRoute] int id)
         {
             return Ok(developerItemModelBuilder.Build(id));
         }
 
+        /// <summary>
+        /// Метод для создания разработчика
+        /// </summary>
+        /// <param name="form">Форма разработчика</param>
+        /// <returns>Идентификатор созданного разработчика</returns>
         [HttpPost]
         public IActionResult Create([FromBody] DeveloperForm form)
         {
@@ -49,6 +63,12 @@ namespace Videogames.Admin.Controllers
             return Ok(id);
         }
 
+        /// <summary>
+        /// Метод для редактирования существующего разработчика
+        /// </summary>
+        /// <param name="id">Идентификатор разработчика</param>
+        /// <param name="form">Форма разработчика</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Edit([FromRoute] int id, [FromBody] DeveloperForm form)
         {
@@ -56,6 +76,11 @@ namespace Videogames.Admin.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Метод для удаления конкретного разработчика
+        /// </summary>
+        /// <param name="id">Идентификатор разработчика</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult Delete([FromRoute] int id)
         {

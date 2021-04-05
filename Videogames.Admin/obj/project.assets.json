@@ -877,19 +877,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\morik\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\morik\\Desktop\\Априкод\\videogameWebApi\\Videogames.Admin\\Videogames.Admin.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\sec\\videogameWebApi\\Videogames.Admin\\Videogames.Admin.csproj",
       "projectName": "Videogames.Admin",
-      "projectPath": "C:\\Users\\morik\\Desktop\\Априкод\\videogameWebApi\\Videogames.Admin\\Videogames.Admin.csproj",
-      "packagesPath": "C:\\Users\\morik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\morik\\Desktop\\Априкод\\videogameWebApi\\Videogames.Admin\\obj\\",
+      "projectPath": "C:\\Users\\user\\Desktop\\sec\\videogameWebApi\\Videogames.Admin\\Videogames.Admin.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\sec\\videogameWebApi\\Videogames.Admin\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\morik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -901,10 +905,9 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\morik\\Desktop\\Априкод\\videogameWebApi\\Videogames.DataLayer\\Videogames.DataLayer.csproj": {
-              "projectPath": "C:\\Users\\morik\\Desktop\\Априкод\\videogameWebApi\\Videogames.DataLayer\\Videogames.DataLayer.csproj"
+            "C:\\Users\\user\\Desktop\\sec\\videogameWebApi\\Videogames.DataLayer\\Videogames.DataLayer.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\sec\\videogameWebApi\\Videogames.DataLayer\\Videogames.DataLayer.csproj"
             }
           }
         }
@@ -917,7 +920,6 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -946,12 +948,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.1.13, 3.1.13]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -960,7 +956,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
